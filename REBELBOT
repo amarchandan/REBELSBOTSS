@@ -1,0 +1,46 @@
+#!/bin/bash
+
+
+_get_repolink () {
+    local regex
+    regex='(https?)://github.com/.+/.+'
+    if [[ $REBEL_REPO == "REBELBOT" ]]
+    then
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1JFQkVMNzUvUkVCRUxVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+    elif [[ $REBEL_REPO == "REBELBOT" ]]
+    then
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1JFQkVMNzUvUkVCRUxVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+    elif [[ $REBEL_REPO =~ $regex ]]
+    then
+        if [[ $REBEL_REPO_BRANCH ]]
+        then
+            echo "${REBEL_REPO}/archive/${REBEL_REPO_BRANCH}.zip"
+        else
+            echo "${REBEL_REPO}/archive/master.zip"
+        fi
+    else
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1JFQkVMNzUvUkVCRUxVU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+    fi
+}
+
+
+_set_bot () {
+    local zippath
+    zippath="REBELBOT.zip"
+    echo "  Downloading source code ..."
+    wget -q $(_get_repolink) -O "$zippath"
+    echo "  Unpacking Data ..."
+    REBELPATH=$(zipinfo -1 "$zippath" | grep -v "/.");
+    unzip -qq "$zippath"
+    echo "Done"
+    echo "  Cleaning ..."
+    rm -rf "$zippath"
+    sleep 5
+    cd $REBELPATH
+    echo " 𝗦𝗧𝗔𝗥𝗧 𝗥𝗘𝗕𝗘𝗟𝗕𝗢𝗧  "
+
+    python3 ../setup/updater.py ../requirements.txt requirements.txt
+    python3 -m userbot
+}
+
+_set_bot
