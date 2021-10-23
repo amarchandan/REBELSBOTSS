@@ -1,6 +1,6 @@
 {
-  "name": "𝚃𝙷𝙴 REBELBOT",
-  "description": "The REBELBOT made by @REBEL_IS_OP special thanks to respective HellBot owner @Kraken_The_BadASS. Join for updates related info @REBELBOT_SUPPORT",
+  "name": "Tᕼᗴ ᖇᗴᗷᗴᒪᗷOT",
+  "description": "The REBELBOT made by @REBEL_IS_OP special thanks to respective mafiabot owner @H1M4N5HU0P. Join for updates related info @REBELBOT_SUPPORT",
   "logo": "https://telegra.ph/file/f16f79ce4055b0fe0511d.jpg",
     "keywords": [
     "telegram",
@@ -9,8 +9,8 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/REBEL75/REBELSBOT/",
-  "website": "https://github.com/REBEL75/REBELSBOT/",
+  "repository": "https://github.com/REBEL75/REBELSBOTS/",
+  "website": "https://github.com/REBEL75/REBELSBOTS/",
   "success_url": "https://t.me/REBELBOT_SUPPORT",
   "env": {
     "ENV": {
@@ -40,7 +40,7 @@
     "HELP_PIC": {
       "description": "Put link of pic or gif to show your .help menu provider cool",
       "value": "https://telegra.ph/file/04394aec58ec3f6cb0e62.mp4",
-      "required": false 
+      "required": True 
     },
     "BIO_MSG": {
       "description": "Put Your Telegram Bio Here Required For Auto Bio.",
